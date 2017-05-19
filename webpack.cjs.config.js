@@ -3,20 +3,13 @@ const webpack = require('webpack')
 module.exports = {
   entry: './src/index.js',
   output: {
-    libraryTarget: 'var',
-    library: 'Logger',
-    filename: './dist/logplease.min.js'
+    libraryTarget: 'commonjs',
+    filename: './lib/index.js'
   },
   node: {
     console: false,
     process: 'mock'
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: true,
-      compress: { warnings: false }
-    })
-  ],
   module: {
     loaders: [{
       test: /\.js$/,
